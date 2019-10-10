@@ -60,13 +60,25 @@ function gitCard(githubData) {
     const img = document.createElement("img");
     const cardInfo = document.createElement("div"); // .card-info
       const name = document.createElement("h3"); // .name
-      const username = document.createElement("p"); // username
+      const userName = document.createElement("p"); // username
       const location = document.createElement("p");
       const profile = document.createElement("p");
       const gitURL = document.createElement("a");
       const followers = document.createElement("p");
       const following = document.createElement("p");
       const bio = document.createElement("p");
+
+  // setup structure of elements
+  card.appendChild(img);
+  card.appendChild(cardInfo);
+  cardInfo.appendChild(name);
+  cardInfo.appendChild(userName);
+  cardInfo.appendChild(location);
+  cardInfo.appendChild(profile);
+  cardInfo.appendChild(gitURL);
+  cardInfo.appendChild(followers);
+  cardInfo.appendChild(following);
+  cardInfo.appendChild(bio);
 }
 
 
