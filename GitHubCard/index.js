@@ -87,7 +87,14 @@ function gitCard(githubData) {
   userName.classList.add("username");
 
   // set text content (from githubData object)
-
+  imgSrc.textContent = githubData.avatar_url;
+  name.textContent = githubData.name;
+  userName.textContent = githubData.login;
+  location.textContent = githubData.location;
+  gitURL.textContent = githubData.html_url;
+  followers.textContent = githubData.followers;
+  following.textContent = githubData.following;
+  bio.textContent = githubData.bio;
 }
 
 
