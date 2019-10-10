@@ -5,7 +5,10 @@
 
 axios.get("https://api.github.com/users/vishalicious213")
   .then(response => {
-    console.log(response)
+    // console.log(response);
+    console.log(response.data); // stays in here, like a function
+    const gitProfile = gitCard(response.data); // send data to function, below and save for reuse
+    gitAnchor.appendChild(gitProfile)
   })
   .catch(error => {
     console.log("Error: ", error);
@@ -21,6 +24,8 @@ axios.get("https://api.github.com/users/vishalicious213")
 /* Step 4: Pass the data received from Github into your function, 
            create a new component and add it to the DOM as a child of .cards
 */
+
+
 
 /* Step 5: Now that you have your own card getting added to the DOM, either 
           follow this link in your browser https://api.github.com/users/<Your github name>/followers 
@@ -53,6 +58,8 @@ const followersArray = [];
 </div>
 
 */
+
+gitAnchor = document.querySelector(".cards"); // anchor for gitProfile(s)
 
 function gitCard(githubData) {
   // define new elements
@@ -95,6 +102,8 @@ function gitCard(githubData) {
   followers.textContent = githubData.followers;
   following.textContent = githubData.following;
   bio.textContent = githubData.bio;
+
+  return card;
 }
 
 
