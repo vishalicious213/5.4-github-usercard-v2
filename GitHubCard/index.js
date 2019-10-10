@@ -54,6 +54,22 @@ const followersArray = [];
 
 */
 
+function gitCard(githubData) {
+  // define new elements
+  const card = document.createElement("div"); // .card
+    const img = document.createElement("img");
+    const cardInfo = document.createElement("div"); // .card-info
+      const name = document.createElement("h3"); // .name
+      const username = document.createElement("p"); // username
+      const location = document.createElement("p");
+      const profile = document.createElement("p");
+      const gitURL = document.createElement("a");
+      const followers = document.createElement("p");
+      const following = document.createElement("p");
+      const bio = document.createElement("p");
+}
+
+
 /* List of LS Instructors Github username's: 
   tetondan
   dustinmyers
