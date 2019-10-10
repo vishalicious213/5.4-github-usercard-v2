@@ -57,7 +57,7 @@ const followersArray = [];
 function gitCard(githubData) {
   // define new elements
   const card = document.createElement("div"); // .card
-    const img = document.createElement("img");
+    const imgSrc = document.createElement("img");
     const cardInfo = document.createElement("div"); // .card-info
       const name = document.createElement("h3"); // .name
       const userName = document.createElement("p"); // username
@@ -69,22 +69,25 @@ function gitCard(githubData) {
       const bio = document.createElement("p");
 
   // setup structure of elements
-  card.appendChild(img);
-  card.appendChild(cardInfo);
-  cardInfo.appendChild(name);
-  cardInfo.appendChild(userName);
-  cardInfo.appendChild(location);
-  cardInfo.appendChild(profile);
-  cardInfo.appendChild(gitURL);
-  cardInfo.appendChild(followers);
-  cardInfo.appendChild(following);
-  cardInfo.appendChild(bio);
+  card.appendChild(imgSrc);         // avatar_url
+  card.appendChild(cardInfo);       // <div>
+  cardInfo.appendChild(name);       // name
+  cardInfo.appendChild(userName);   // login
+  cardInfo.appendChild(location);   // location
+  cardInfo.appendChild(profile);    // <p>
+  cardInfo.appendChild(gitURL);     // html_url
+  cardInfo.appendChild(followers);  // followers
+  cardInfo.appendChild(following);  // following
+  cardInfo.appendChild(bio);        // bio
 
   // set class names
   card.classList.add("card");
   cardInfo.classList.add("card-info");
   name.classList.add("name");
   userName.classList.add("username");
+
+  // set text content (from githubData object)
+
 }
 
 
