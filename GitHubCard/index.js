@@ -5,7 +5,7 @@
 
 axios.get("https://api.github.com/users/vishalicious213")
   .then(response => {
-    // console.log(response);
+    console.log(response);
     // console.log(response.data); // stays in here, like a function
     const gitProfile = gitCard(response.data); // send data to function, below and save for reuse
     gitAnchor.appendChild(gitProfile) // add profile to screen
@@ -25,8 +25,6 @@ axios.get("https://api.github.com/users/vishalicious213")
            create a new component and add it to the DOM as a child of .cards
 */
 
-
-
 /* Step 5: Now that you have your own card getting added to the DOM, either 
           follow this link in your browser https://api.github.com/users/<Your github name>/followers 
           , manually find some other users' github handles, or use the list found 
@@ -38,6 +36,20 @@ axios.get("https://api.github.com/users/vishalicious213")
 */
 
 const followersArray = ["BaoPham92", "zeravenyoej", "Lfritze", "mxxt1", "darrenjcarrillo", "kukicako", "Jnmendza", "seanaleid", "MrT3313"];
+
+followersArray.forEach(follower => {
+  axios.get(`https://api.github.com/users/${follower}`)
+  .then(response => {
+    console.log("Got follower data from GitHub: ", response.data.name);
+    // console.log(response);
+    const followerProfile = gitCard(response.data);
+    gitAnchor.appendChild(followerProfile)    //append using function
+  })
+  .catch(err => {
+    console.log("Got follower data error from GitHub", err)
+  })
+}) // followersArray
+
 
 /* Step 3: Create a function that accepts a single object as its only argument,
           Using DOM methods and properties, create a component that will return the following DOM element:
