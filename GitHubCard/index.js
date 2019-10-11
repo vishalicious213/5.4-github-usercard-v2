@@ -6,9 +6,9 @@
 axios.get("https://api.github.com/users/vishalicious213")
   .then(response => {
     // console.log(response);
-    console.log(response.data); // stays in here, like a function
+    // console.log(response.data); // stays in here, like a function
     const gitProfile = gitCard(response.data); // send data to function, below and save for reuse
-    gitAnchor.appendChild(gitProfile)
+    gitAnchor.appendChild(gitProfile) // add profile to screen
   })
   .catch(error => {
     console.log("Error: ", error);
@@ -69,11 +69,13 @@ function gitCard(githubData) {
       const name = document.createElement("h3"); // .name
       const userName = document.createElement("p"); // username
       const location = document.createElement("p");
-      const profile = document.createElement("p");
+      const profileContainer = document.createElement("div");
+      const profile = document.createElement("span"); // changed from <p> to <span>
       const gitURL = document.createElement("a");
       const followers = document.createElement("p");
       const following = document.createElement("p");
       const bio = document.createElement("p");
+      // const URL = document.createElement("span");
 
   // setup structure of elements
   card.appendChild(imgSrc);         // avatar_url
@@ -81,8 +83,9 @@ function gitCard(githubData) {
   cardInfo.appendChild(name);       // name
   cardInfo.appendChild(userName);   // login
   cardInfo.appendChild(location);   // location
-  cardInfo.appendChild(profile);    // <p>
-  cardInfo.appendChild(gitURL);     // html_url
+  cardInfo.appendChild(profileContainer);   // added to hold profile text & URL
+    profileContainer.appendChild(profile);  // changed to <span>
+    profileContainer.appendChild(gitURL);   // html_url
   cardInfo.appendChild(followers);  // followers
   cardInfo.appendChild(following);  // following
   cardInfo.appendChild(bio);        // bio
@@ -94,14 +97,18 @@ function gitCard(githubData) {
   userName.classList.add("username");
 
   // set text content (from githubData object)
-  imgSrc.textContent = githubData.avatar_url;
+  imgSrc.src = githubData.avatar_url; // its .src, not text
   name.textContent = githubData.name;
   userName.textContent = githubData.login;
-  location.textContent = githubData.location;
+  location.textContent = `Location: ${githubData.location}`;
+  profile.textContent = `Profile: `;
+    profile.style.fontSize = "1.4rem";
   gitURL.textContent = githubData.html_url;
-  followers.textContent = githubData.followers;
-  following.textContent = githubData.following;
-  bio.textContent = githubData.bio;
+  gitURL.href = githubData.html_url;
+    gitURL.style.fontSize = "1.4rem";
+  followers.textContent = `Followers: ${githubData.followers}`;
+  following.textContent = `Following: ${githubData.following}`;
+  bio.textContent = `Bio: ${githubData.bio}`;
 
   return card;
 }
