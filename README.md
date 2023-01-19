@@ -1,10 +1,13 @@
 # Github User Cards
 
-In this project we are going to be accessing the GitHub API and building a social card based on the data we get back. The goal is to create a component based on the data we get when we send a GET request to the GitHub API (requesting your own data at first). The CSS and the base HTML is already done for you, you simply need to create the component function and connect the pieces.
+In this project I accessed the GitHub API and built a social card based on the data it returned. I created a component based on the data returned from a GET request to the GitHub API that requested my own data. I then expanded it to get followers data. 
 
-### Need to know:
+The CSS and the base HTML was provided by the bootcamp I attended, but it was bare-bones (essentially a container \<div>). The cards were entirely generated through JavaScript by creating HTML elements, appending them into the DOM and adding classes to them. I also modified the GET request afterwards to increase the number of followers per page from 30 to 100.
+
+## Need to know:
+
 * JavaScript:
-  * Creating DOM components with Javascript Functions.
+  * Creating DOM components with Javascript Functions
   * Utilizing 3rd party libraries (axios)
   * Promises, .then & .catch
   * HTTP GET requests
@@ -14,26 +17,7 @@ In this project we are going to be accessing the GitHub API and building a socia
   * Basic DOM manipulation
   * Events and event listeners
 
-## Set Up The Project With Git
-
-**Follow these steps to set up and work on your project:**
-
-* [x] Create a forked copy of this project.
-* [ ] Add your project manager as collaborator on Github.
-* [x] Clone your OWN version of the repository (Not Lambda's by mistake!).
-* [x] Create a new branch: git checkout -b `<firstName-lastName>`.
-* [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-* [x] Push commits: git push origin `<firstName-lastName>`.
-
-**Follow these steps for completing your project.**
-
-* [x] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo). **Please don't merge your own pull request**
-* [x] Add your project manager as a reviewer on the pull-request
-* [ ] Your project manager will count the project as complete by merging the branch back into master.
-
-### Preprocessor Setup
-
-  * None. We have gone ahead and taken care of this step for you. Focus on the Javascript 😁.
+## Process & tasks
 
 ### Part 1: Requesting Data from the GitHub API
 * Include the script element linking the `axios` library in your HTML. If you do not remember the code you can find it here: https://github.com/axios/axios
@@ -52,8 +36,6 @@ In this project we are going to be accessing the GitHub API and building a socia
 
 * Instead of manually creating a list of followers, do it programmatically. Create a function that requests the followers data from the API after it has received your data and create a card for each of your followers. Hint: you can chain promises.
 
-* Look into adding more info as an expanding card. You will need to create some new CSS and a button that expands and contracts the card. 
+## Deploy link
 
-* Look into adding your GitHub contribution graph. There are a number of different ways of doing this, this Stack Overflow discussion will get you started: https://stackoverflow.com/questions/34516592/embed-github-contributions-graph-in-website
-
-Note: Just a reminder the stretch goals are just extra practice using the tools we have learned. These are not required. Only parts 1-3 are required portions of the project. If you do not get to the stretch goals, don't worry.
+Deployed at https://vishalicious213.github.io/5.4-github-usercard-v2/
