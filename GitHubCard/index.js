@@ -59,9 +59,15 @@ function renderFollowers() {
   .then(response => {
       // console.log('renderFollowers', response)
       response.data.forEach(person => {
-          // console.log(person.login)
-          const gitProfile = gitCard(person);
-          gitAnchor.appendChild(gitProfile) // add profile to screen
+        axios.get(`https://api.github.com/users/${person.login}`)
+        .then(personResponse => {
+            // console.log(personResponse.data)
+            const gitProfile = gitCard(personResponse.data);
+            gitAnchor.appendChild(gitProfile) // add profile to screen
+        })
+        .catch(err => {
+          console.log("Error rendering follower", err)
+        })
       })
     })
     .catch(error => {
