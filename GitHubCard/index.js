@@ -58,7 +58,7 @@ function gitCard(githubData) {
 
 // get & render followers
 function renderFollowers() {
-  axios.get("https://api.github.com/users/littleonetwo/followers")
+  axios.get("https://api.github.com/users/vishalicious213/followers")
   .then(response => {
       // console.log('renderFollowers', response)
       response.data.forEach(person => {
@@ -79,7 +79,7 @@ function renderFollowers() {
 }
 
 // get & render my github data
-axios.get("https://api.github.com/users/littleonetwo")
+axios.get("https://api.github.com/users/vishalicious213")
     .then(response => {
         const gitProfile = gitCard(response.data);
         gitAnchor.appendChild(gitProfile) // add profile to screen
