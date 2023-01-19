@@ -4,7 +4,8 @@ gitAnchor = document.querySelector(".cards"); // anchor for gitProfile(s)
 function gitCard(githubData) {
     // define new elements
     const card = document.createElement("div"); // .card
-        const imgSrc = document.createElement("img");
+        const imgContainer = document.createElement("div")
+            const imgSrc = document.createElement("img");
         const cardInfo = document.createElement("div"); // .card-info
             const name = document.createElement("h3"); // .name
             const userName = document.createElement("p"); // username
@@ -18,7 +19,8 @@ function gitCard(githubData) {
             // const URL = document.createElement("span");
 
     // setup structure of elements
-    card.appendChild(imgSrc);         // avatar_url
+    card.appendChild(imgContainer)    // image container
+        imgContainer.appendChild(imgSrc);   // avatar_url
     card.appendChild(cardInfo);       // <div>
     cardInfo.appendChild(name);       // name
     cardInfo.appendChild(userName);   // login
@@ -35,6 +37,7 @@ function gitCard(githubData) {
     cardInfo.classList.add("card-info");
     name.classList.add("name");
     userName.classList.add("username");
+    imgContainer.classList.add("img-container")
 
     // set text content (from githubData object)
     imgSrc.src = githubData.avatar_url; // its .src, not text
@@ -43,7 +46,7 @@ function gitCard(githubData) {
     location.textContent = `Location: ${githubData.location}`;
     profile.textContent = `Profile: `;
         profile.style.fontSize = "1.4rem";
-    gitURL.textContent = githubData.html_url;
+    gitURL.textContent = githubData.name;
     gitURL.href = githubData.html_url;
         gitURL.style.fontSize = "1.4rem";
     followers.textContent = `Followers: ${githubData.followers}`;
@@ -90,7 +93,9 @@ renderFollowers()
 
 /* gitCard renders this structure:
   <div class="card">
-      <img src={image url of user} />
+      <div class="img-container">
+          <img src={image url of user} />
+      </div>
       <div class="card-info">
           <h3 class="name">{users name}</h3>
           <p class="username">{users user name}</p>
