@@ -58,7 +58,7 @@ function gitCard(githubData) {
 
 // get & render followers
 function renderFollowers() {
-  axios.get("https://api.github.com/users/vishalicious213/followers")
+  axios.get("https://api.github.com/users/vishalicious213/followers?per_page=100")
   .then(response => {
       // console.log('renderFollowers', response)
       response.data.forEach(person => {
